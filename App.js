@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Home from "./components/Home";
+import Settings from "./components/Settings";
+import List from "./components/ListView";
+import AddExercise from "./components/AddExercise";
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name={"Home"} component={Home} icon={"home"}
+        options={{tabBarIcon: () => <Ionicons name={"home"} size={24} color={"black"} />}}/>
+        <Tab.Screen name={"Add Exercise"} component={AddExercise} 
+        options={{tabBarIcon: () => <Ionicons name={"add-circle-outline"} size={24} color={"black"} />}}/>
+        <Tab.Screen name={"List"} component={List} 
+        options={{tabBarIcon: () => <Ionicons name={"list-outline"} size={24} color={"black"} />}}/>
+        <Tab.Screen name={"Settings"} component={Settings} 
+        options={{tabBarIcon: () => <Ionicons name={"settings-outline"} size={24} color={"black"} />}}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
