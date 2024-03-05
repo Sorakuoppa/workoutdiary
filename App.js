@@ -11,9 +11,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name={"Add Exercise"} component={AddExercise} 
+        <Tab.Screen name={"Add Workout"} component={AddExercise} 
         options={{tabBarIcon: () => <Ionicons name={"add-circle-outline"} size={24} color={"black"} />}}/>
-        <Tab.Screen name={"Exercise list"} component={List} 
+        <Tab.Screen name={"List"} component={List} 
         options={{tabBarIcon: () => <Ionicons name={"list-outline"} size={24} color={"black"} />}}/>
         <Tab.Screen name={"Settings"} component={Settings} 
         options={{tabBarIcon: () => <Ionicons name={"settings-outline"} size={24} color={"black"} />}}/>
