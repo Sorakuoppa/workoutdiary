@@ -13,18 +13,19 @@ export default AddExercise = () => {
         { icon: "bike", value: 2 }
     ]
     const [selection, setSelection] = useState(buttons[0].value);
+    const [distance, setDistance] = useState("");
+    const [duration, setDuration] = useState("");
 
     function dateSelected(day) {
         setVisible(false)
         setDate(day)
     }
-
     return (
         <Provider theme={styles}>
             <View>
                 <SegmentedButtons value={selection} onValueChange={setSelection} buttons={buttons} />
-                <TextInput label="Distance (km)" keyboardType='number-pad'></TextInput>
-                <TextInput label="Duration" keyboardType='number-pad'></TextInput>
+                <TextInput label="Distance (km)" keyboardType='number-pad' onValueChange={setDistance}></TextInput>
+                <TextInput label="Duration" keyboardType='number-pad' onValueChange={setDuration}></TextInput>
                 <Modal visible={visible} transparent={true}>
                     <View style={styles.modal}>
                         <Calendar onDayPress={dateSelected} />
