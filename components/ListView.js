@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { useState, useContext } from 'react';
+import { ScrollView, StyleSheet, View, FlatList } from 'react-native';
 import { Card, Icon, Text, Provider } from 'react-native-paper';
+import { WorkoutContext } from './Context';
 import styles from '../styles/style'
 
 export default List = () => {
+
+    const { workouts } = useContext(WorkoutContext);
+
     return (
         <Provider theme={styles}>
             <View>
@@ -23,13 +27,29 @@ export default List = () => {
                 </Card>
             </View>
             <ScrollView>
-                <Card>
-                    <Card.Content>
-                        <Icon source="walk" size={20}></Icon>
-                        <Text variant="headlineMedium">0 km</Text>
-                    </Card.Content>
-                </Card>
+                <View>
+                    <FlatList
+                        data={workouts}
+                        renderItem={({ item }) => <Item workout={item} />}
+                    />
+                </View>
             </ScrollView>
         </Provider>
     )
+}
+
+function Item({ workout }) {
+
+    return (
+        <View>
+            <Card>
+                <Card.Content>
+                    <Icon source={workout.selection[0]} size={20}></Icon>
+                    <Text variant="headlineSmall">Distance: {workout.distance}</Text>
+                    <Text variant="headlineSmall">Duration: {workout.duration}</Text>
+                    <Text variant="headlineSmall">{workout.date.dateString}</Text>
+                </Card.Content>
+            </Card>
+        </View>
+    );
 }

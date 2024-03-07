@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
 import { Button, TextInput, SegmentedButtons, Provider } from 'react-native-paper'
+import { WorkoutContext} from './Context';
 import { Calendar } from 'react-native-calendars';
 import styles from '../styles/style'
 
 export default AddExercise = () => {
+    const {setWorkouts} = useContext(WorkoutContext);
     const [visible, setVisible] = useState(false);
     const [date, setDate] = useState();
     const buttons = [
@@ -16,16 +18,23 @@ export default AddExercise = () => {
     const [distance, setDistance] = useState("");
     const [duration, setDuration] = useState("");
 
+    function addWorkout(){
+        setWorkouts( prev => [...prev, {selection, distance, duration, date}]);
+        setDistance('');
+        setDuration('');
+    }   
+
     function dateSelected(day) {
         setVisible(false)
         setDate(day)
     }
+    
     return (
         <Provider theme={styles}>
             <View>
                 <SegmentedButtons value={selection} onValueChange={setSelection} buttons={buttons} />
                 <TextInput label="Distance (km)" keyboardType='number-pad' onValueChange={setDistance}></TextInput>
-                <TextInput label="Duration" keyboardType='number-pad' onValueChange={setDuration}></TextInput>
+                <TextInput label="Duration (min)" keyboardType='number-pad' onValueChange={setDuration}></TextInput>
                 <Modal visible={visible} transparent={true}>
                     <View style={styles.modal}>
                         <Calendar onDayPress={dateSelected} />
@@ -33,7 +42,7 @@ export default AddExercise = () => {
                     </View>
                 </Modal>
                 <Button icon="calendar" onPress={() => setVisible(true)}>{date ? date.dateString : "Select date"}</Button>
-                <Button>Add workout</Button>
+                <Button onPress={addWorkout}>Add workout</Button>
             </View>
         </Provider>
     )
