@@ -44,9 +44,9 @@ function Item({ workout }) {
         <View>
             <Card>
                 <Card.Content>
-                    <Icon source={workout.selection[0]} size={20}></Icon>
-                    <Text variant="headlineSmall">Distance: {workout.distance}</Text>
-                    <Text variant="headlineSmall">Duration: {workout.duration}</Text>
+                    <Icon source={(toString(workout.selection))} size={20}></Icon>
+                    <Text variant="headlineSmall">Distance: {workout.distance} km</Text>
+                    <Text variant="headlineSmall">Duration: {workout.duration} min</Text>
                     <Text variant="headlineSmall">{workout.date.dateString}</Text>
                 </Card.Content>
             </Card>

@@ -14,27 +14,29 @@ export default AddExercise = () => {
         { icon: "swim", value: 1 },
         { icon: "bike", value: 2 }
     ]
-    const [selection, setSelection] = useState(buttons[0].value);
+    const [selection, setSelection] = useState(buttons[0].icon);
     const [distance, setDistance] = useState("");
     const [duration, setDuration] = useState("");
+    console.log(distance);
 
     function addWorkout(){
         setWorkouts( prev => [...prev, {selection, distance, duration, date}]);
-        setDistance('');
-        setDuration('');
+        setDistance('0');
+        setDuration('0');
+        setDate('');
     }   
 
     function dateSelected(day) {
         setVisible(false)
         setDate(day)
     }
-    
+
     return (
         <Provider theme={styles}>
             <View>
                 <SegmentedButtons value={selection} onValueChange={setSelection} buttons={buttons} />
-                <TextInput label="Distance (km)" keyboardType='number-pad' onValueChange={setDistance}></TextInput>
-                <TextInput label="Duration (min)" keyboardType='number-pad' onValueChange={setDuration}></TextInput>
+                <TextInput label="Distance (km)" keyboardType='number-pad' onChangeText={setDistance}></TextInput>
+                <TextInput label="Duration (min)" keyboardType='number-pad' onChangeText={setDuration}></TextInput>
                 <Modal visible={visible} transparent={true}>
                     <View style={styles.modal}>
                         <Calendar onDayPress={dateSelected} />

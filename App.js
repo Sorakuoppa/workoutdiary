@@ -12,7 +12,7 @@ import AddExercise from "./components/AddExercise";
 export default function App() {
 
   const Tab = createBottomTabNavigator();
-  const [workouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState([{selection:"swim", distance:"5", duration:"60", date:"2024-03-09"}]);
 
   return (
     <WorkoutContext.Provider value={{ workouts, setWorkouts }}>
