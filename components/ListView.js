@@ -10,8 +10,8 @@ export default List = () => {
 
     return (
         <Provider theme={styles}>
-            <View>
-                <Card title="card" mode="outlined">
+            <View style={styles.cardView}>
+                <Card style={styles.card} title="card">
                     <Card.Content>
                         <Icon source="walk" size={20}></Icon>
                         <Text variant="headlineMedium">0 km</Text>
@@ -42,12 +42,12 @@ function Item({ workout }) {
 
     return (
         <View>
-            <Card>
-                <Card.Content>
-                    <Icon source={(toString(workout.selection))} size={20}></Icon>
+            <Card >
+                <Card.Content style={styles.listItem}>
+                    <Icon source={workout.selection} size={20}></Icon>
+                    <Text variant="headlineSmall">{workout.date.dateString}</Text>
                     <Text variant="headlineSmall">Distance: {workout.distance} km</Text>
                     <Text variant="headlineSmall">Duration: {workout.duration} min</Text>
-                    <Text variant="headlineSmall">{workout.date.dateString}</Text>
                 </Card.Content>
             </Card>
         </View>

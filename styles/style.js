@@ -53,6 +53,38 @@ export default StyleSheet.create({
   },
   date: {
     fontSize: 24
+  },
+  iconButton: {
+    margin: 10
+  },
+  button: {
+    margin:10,
+    borderBottomWidth: 2,
+    borderColor: "#005F54"
+  },
+  textinput: {
+    margin:10,
+    borderBottomWidth: 2,
+    borderColor: "#005F54"
+  },
+  cardView: {
+    display:'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgb(250, 253, 251)',
+    borderRadius: 10,
+    margin: 10,
+    padding: 10
+  },
+  card: {
+    flex:1,
+  },
+  listItem: {
+    borderBottomWidth: 2,
+    borderColor: "#005F54",
+    backgroundColor: 'rgb(250, 253, 251)',
+    borderRadius: 10,
+    margin: 10
   }
 }
 );

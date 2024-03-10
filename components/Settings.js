@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <Provider theme={styles}>
-      <View>
+      <View style={styles.cardView}>
         <RadioButton.Group onValueChange={setDistance} value={distance}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text>Kilometres</Text>
