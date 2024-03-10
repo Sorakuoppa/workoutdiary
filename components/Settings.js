@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { RadioButton, Provider } from 'react-native-paper';
-import styles from '../styles/style'
+import styles from '../styles/style';
 
 const distances = ["kilometres", "miles"];
 

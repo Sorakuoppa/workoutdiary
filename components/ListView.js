@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { ScrollView, StyleSheet, View, FlatList } from 'react-native';
 import { Card, Icon, Text, Provider } from 'react-native-paper';
 import { WorkoutContext } from './Context';
-import styles from '../styles/style'
+import styles from '../styles/style';
 
 export default List = () => {
 

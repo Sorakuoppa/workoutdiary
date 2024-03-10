@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
 import { Button, TextInput, SegmentedButtons, Provider } from 'react-native-paper'
 import { WorkoutContext} from './Context';
 import { Calendar } from 'react-native-calendars';
-import styles from '../styles/style'
+import styles from '../styles/style';
 
 export default AddExercise = () => {
     const {setWorkouts} = useContext(WorkoutContext);
